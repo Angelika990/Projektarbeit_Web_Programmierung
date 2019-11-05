@@ -247,7 +247,23 @@
         float:right!important
     }
 
-@media (min-width:601px){.color{width:8.33333%}.color.colorWidth{width:16.66666%}.color,.module{width:24.99999%}.color,.module{width:25%}
+@media (min-width:601px){
+
+    .color {
+        width:8.33333%
+    }
+
+    .color.colorWidth {
+        width:16.66666%
+    }
+
+    .color,.module {
+      width:24.99999%
+    }
+
+    .color,.module {
+        width:25%
+    }
 
     .red {
         color:#fff!important;
