@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Favoriten-Liste</title>
+
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="app.css" />
+
+        <script src="page-list.js"></script>
+        <link rel="stylesheet" href="page-list.css" />
+
+        <script src="page-edit.js"></script>
+        <link rel="stylesheet" href="page-edit.css" />
+
+        <script>
+            window.addEventListener("load", () => {
+                let pages = [
+                  {
+                      name: "page-new",
+                      klass: PageEdit,
+                      label: "+",
+                      hidden: false,
+                  },
+
+                    {
+                        name: "page-list",
+                        klass: PageList,
+                        label: "Übersicht",
+                        hidden: false,
+                    },
+
+                    {
+                        name: "page-edit",
+                        klass: PageEdit,
+                        label: "Serien bearbeiten",
+                        hidden: true,
+                    },
+
+                ];
+
+                let app = new App(pages);
+                app.showPage("page-list");
+            });
+        </script>
+    </head>
+
+    <body>
+
+      <header>
+        <h1>Serien</h1>
+      </header>
+        <nav id="serien-menu">
+            <ul></ul>
+
+        </nav>
+
+        <template id="template-app-menu-li">
+            <li data-page-name="$NAME$">
+                <a>$LABEL$</a>
+            </li>
+        </template>
+
+        <!-- Seite: Listenübersicht -->
+        <main id="main-page-list" class="hidden">
+            <ol></ol>
+        </main>
+
+        <template id="template-page-list-empty">
+            <li>
+                <div class="titel">
+                    Keine Einträge vorhanden
+                </div>
+            </li>
+        </template>
+
+        <template id="template-page-list-li">
+            <li>
+                <div class="titel">
+                    <b>Titel:</b> $TITEL$
+                </div>
+                <div class="field jahr">
+                  <b>Erscheinungsjahr:</b> $JAHR$
+                </div>
+                <div class="field genre">
+                    <b>Genre:</b> $GENRE$
+                </div>
+                <div class="field alter">
+                    <b>FSK:</b> $ALTER$
+                </div>
+                <div class="field episoden">
+                  <b> Episoden:</b> $FOLGEN$ in $STAFFELN$ Staffeln
+                </div>
+                <div class="field laenge">
+                    <b>Episodenlänge:</b> $LAENGE$ min
+                </div>
+                <div class="field sprache">
+                    <b>Sprachen:</b> $SPRACHE$
+                </div>
+                <div class="actions">
+                    <div class="action edit">
+                        <a>🖊️</a>
+                    </div>
+                    <div class="action delete">
+                        <a>🗑️</a>
+                    </div>
+                </div>
+            </li>
+        </template>
+
+
+        <main id="main-page-edit" class="hidden">
+        </main>
+
+        <template id="template-page-edit"
+            <div>
+                <div class="form">
+                    <input class="titel" placeholder="Titel" value="$TITEL$" />
+                    <input class="jahr" placeholder="Erscheinungsjahr" value="$JAHR$" />
+                    <input class="genre" placeholder="Genre" value="$GENRE$" />
+                    <input class="alter" placeholder="Altersfreigabe" value="$ALTER$" />
+                    <input class="staffeln" placeholder="Anzahl der Staffeln" value="$STAFFELN$" />
+                    <input class="folgen" placeholder="Anzahl der Folgen insgesamt" value="$FOLGEN$" />
+                    <input class="laenge" placeholder="Episodenlänge in Minuten" value="$LAENGE$" />
+                    <input class="sprache" placeholder="Sprachen" value="$SPRACHE$" />
+
+                </div>
+                <div class="actions">
+                    <div class="action save">
+                        <a>💾</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </body>
+</html>
