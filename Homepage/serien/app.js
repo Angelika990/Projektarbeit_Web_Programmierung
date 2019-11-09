@@ -7,10 +7,10 @@ class App {
     constructor(pages) {
 
         this._pages = pages;
-        this._currentPageObject = null;
+        this.aktuelleSeite = null;
 
 
-        this._data = [
+        this.inhalt = [
             {
                 titel: "The Originals",
                 jahr: "2013-2018",
@@ -20,17 +20,19 @@ class App {
                 folgen: "92",
                 laenge: "ca. 40",
                 sprache: "Deutsch, Englisch",
+                bewertung:"5",
+
             },
         ];
 
 
-        this._renderMenu();
+        this.menueErstellen();
     }
 
 
-    _renderMenu() {
+    menueErstellen() {
         let ul = document.querySelector("#serien-menu > ul");
-        let template = document.getElementById("template-app-menu-li").innerHTML;
+        let template = document.getElementById("menueleiste").innerHTML;
 
         this._pages.forEach(page => {
 
@@ -44,13 +46,12 @@ class App {
 
 
             let li = temp.firstElementChild;
-            li.addEventListener("click", () => this.showPage(page.name));
+            li.addEventListener("click", () => this.seiteAnzeigen(page.name));
 
 
             temp.removeChild(li);
             ul.appendChild(li);
-        }
-      );
+        });
     }
 
     /**
@@ -58,21 +59,21 @@ class App {
      * @param  {String} name Name der anzuzeigenden Seite, gemäß this.pages
      * @param  {Integer} editIndex Nummer des bearbeiteten Datensatzes (optional)
      */
-    showPage(name, editIndex) {
+    seiteAnzeigen(name, editIndex) {
 
-        let newPage = this._pages.find(p => p.name === name);
+        let neueSeite = this._pages.find(seite => seite.name === name);
 
-        if (newPage === undefined) {
+        if (neueSeite === undefined) {
             return;
         }
 
 
-        if (this._currentPageObject != null) {
-            this._currentPageObject.hide();
+        if (this.aktuelleSeite != null) {
+            this.aktuelleSeite.hide();
         }
 
-        this._currentPageObject = new newPage.klass(this, name, editIndex);
-        this._currentPageObject.show();
+        this.aktuelleSeite = new neueSeite.klass(this, name, editIndex);
+        this.aktuelleSeite.show();
 
 
         document.querySelectorAll("#serien-menu li").forEach(li => li.classList.remove("active"));
@@ -83,39 +84,39 @@ class App {
     /**
      * @return {Array} Array mit allen Datenobjekten
      */
-    getData() {
-        return this._data;
+    inhaltAuslesen() {
+        return this.inhalt;
     }
 
     /**
      * @param  {Integer} index Index des gewünschten Datensatzes
      * @return {Object} Gewünschter Datensatz oder undefined
      */
-    getDataByIndex(index) {
-        return this._data[index];
+    inhaltAuslesenByIndex(index) {
+        return this.inhalt[index];
     }
 
     /**
      * @param {Integer} index Index des zu aktualisierenden Datensatzes
-     * @param {Object} dataset Neue Daten des Datensatzes
+     * @param {Object} serie Neue Daten des Datensatzes
      */
-    updateDataByIndex(index, dataset) {
-        this._data[index] = dataset;
+    inhaltBearbeitenByIndex(index, serie) {
+        this.inhalt[index] = serie;
     }
 
     /**
      * @param {[type]} index Index des zu löschenden Datensatzes
      */
-    deleteDataByIndex(index) {
-        this._data.splice(index, 1);
+    inhaltloeschenByIndex(index) {
+        this.inhalt.splice(index, 1);
     }
 
     /**
-     * @param  {Object} dataset Neu anzuhängender Datensatz
+     * @param  {Object} serie Neu anzuhängender Datensatz
      * @return {Integer} Index des neuen Datensatzes
      */
-    appendData(dataset) {
-        this._data.push(dataset);
-        return this._data.length - 1;
+    inhaltHinzufuegen(serie) {
+        this.inhalt.push(serie);
+        return this.inhalt.length - 1;
     }
 }

@@ -13,10 +13,11 @@ class PageEdit {
         this._app = app;
         this._editIndex = editIndex;
 
-        this._mainElement = document.getElementById("main-page-edit");
+        this.bearbeitendeSeite = document.getElementById("serienBearbeitenSeite");
 
 
-        this._dataset = {
+        this._serie = {
+
             titel: "",
             jahr: "",
             genre: "",
@@ -25,64 +26,74 @@ class PageEdit {
             folgen: "",
             laenge: "",
             sprache: "",
-            
+            bewertung: "",
+
         };
 
         if (this._editIndex > -1) {
-            let dataset = this._app.getDataByIndex(this._editIndex);
+            let serie = this._app.inhaltAuslesenByIndex(this._editIndex);
 
-            this._dataset.titel = dataset.titel;
-            this._dataset.jahr = dataset.jahr;
-            this._dataset.genre = dataset.genre;
-            this._dataset.alter = dataset.alter;
-            this._dataset.staffeln = dataset.staffeln;
-            this._dataset.folgen = dataset.folgen;
-            this._dataset.laenge = dataset.laenge;
-            this._dataset.sprache = dataset.sprache;
+            this._serie.titel = serie.titel;
+            this._serie.jahr = serie.jahr;
+            this._serie.genre = serie.genre;
+            this._serie.alter = serie.alter;
+            this._serie.staffeln = serie.staffeln;
+            this._serie.folgen = serie.folgen;
+            this._serie.laenge = serie.laenge;
+            this._serie.sprache = serie.sprache;
+            this._serie.bewertung = serie.bewertung;
+
+
         }
     }
 
 
     show() {
-        this._renderForm();
-        this._mainElement.classList.remove("hidden");
+        this.neuerEintrag();
+        this.bearbeitendeSeite.classList.remove("hidden");
     }
 
 
     hide() {
-        this._mainElement.classList.add("hidden");
+        this.bearbeitendeSeite.classList.add("hidden");
     }
 
-    _renderForm() {
+    neuerEintrag() {
 
-        this._mainElement.innerHTML = "";
+        this.bearbeitendeSeite.innerHTML = "";
 
 
-        let template = document.getElementById("template-page-edit").innerHTML;
-        this._mainElement.innerHTML = template;
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$TITEL$", this._dataset.titel);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$JAHR$", this._dataset.jahr);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$GENRE$", this._dataset.genre);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$ALTER$", this._dataset.alter);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$STAFFELN$", this._dataset.staffeln);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$FOLGEN$", this._dataset.folgen);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$LAENGE$", this._dataset.laenge);
-        this._mainElement.innerHTML = this._mainElement.innerHTML.replace("$SPRACHE$", this._dataset.sprache);
+        let template = document.getElementById("template-serien-bearbeiten").innerHTML;
+        this.bearbeitendeSeite.innerHTML = template;
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$TITEL$", this._serie.titel);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$JAHR$", this._serie.jahr);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$GENRE$", this._serie.genre);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$ALTER$", this._serie.alter);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$STAFFELN$", this._serie.staffeln);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$FOLGEN$", this._serie.folgen);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$LAENGE$", this._serie.laenge);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$SPRACHE$", this._serie.sprache);
+        this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$BEWERTUNG$", this._serie.bewertung);
 
-        let saveButton = this._mainElement.querySelector(".action.save");
-        saveButton.addEventListener("click", () => this._saveAndExit());
+
+
+        let saveButton = this.bearbeitendeSeite.querySelector(".action.save");
+        saveButton.addEventListener("click", () => this.speichern());
     }
 
-    _saveAndExit() {
 
-        let titel = document.querySelector("#main-page-edit .titel").value.trim();
-        let jahr = document.querySelector("#main-page-edit .jahr").value.trim();
-        let genre = document.querySelector("#main-page-edit .genre").value.trim();
-        let alter = document.querySelector("#main-page-edit .alter").value.trim();
-        let staffeln= document.querySelector("#main-page-edit .staffeln").value.trim();
-        let folgen= document.querySelector("#main-page-edit .folgen").value.trim();
-        let laenge = document.querySelector("#main-page-edit .laenge").value.trim();
-        let sprache = document.querySelector("#main-page-edit .sprache").value.trim();
+    speichern() {
+
+        let titel = document.querySelector("#serienBearbeitenSeite .titel").value.trim();
+        let jahr = document.querySelector("#serienBearbeitenSeite .jahr").value.trim();
+        let genre = document.querySelector("#serienBearbeitenSeite .genre").value.trim();
+        let alter = document.querySelector("#serienBearbeitenSeite .alter").value.trim();
+        let staffeln= document.querySelector("#serienBearbeitenSeite .staffeln").value.trim();
+        let folgen= document.querySelector("#serienBearbeitenSeite .folgen").value.trim();
+        let laenge = document.querySelector("#serienBearbeitenSeite .laenge").value.trim();
+        let sprache = document.querySelector("#serienBearbeitenSeite .sprache").value.trim();
+        let bewertung = document.querySelector("#serienBearbeitenSeite .bewertung").value.trim();
+
 
         if (titel === "") {
             alert("Geben Sie erst einen Titel ein.");
@@ -91,22 +102,25 @@ class PageEdit {
 
 
 
-        this._dataset.titel = titel;
-        this._dataset.jahr = jahr;
-        this._dataset.genre = genre;
-        this._dataset.alter = alter;
-        this._dataset.staffeln = staffeln;
-        this._dataset.folgen = folgen;
-        this._dataset.laenge = laenge;
-        this._dataset.sprache = sprache;
+        this._serie.titel = titel;
+        this._serie.jahr = jahr;
+        this._serie.genre = genre;
+        this._serie.alter = alter;
+        this._serie.staffeln = staffeln;
+        this._serie.folgen = folgen;
+        this._serie.laenge = laenge;
+        this._serie.sprache = sprache;
+        this._serie.bewertung = bewertung;
+
+
 
         if (this._editIndex > -1) {
-            this._app.updateDataByIndex(this._editIndex, this._dataset);
+            this._app.inhaltBearbeitenByIndex(this._editIndex, this._serie);
         } else {
-            this._app.appendData(this._dataset);
+            this._app.inhaltHinzufuegen(this._serie);
         }
 
 
-        this._app.showPage("page-list");
+        this._app.seiteAnzeigen("page-list");
     }
 }

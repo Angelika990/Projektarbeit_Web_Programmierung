@@ -40,7 +40,7 @@
                 ];
 
                 let app = new App(pages);
-                app.showPage("page-list");
+                app.seiteAnzeigen("page-list");
             });
         </script>
     </head>
@@ -55,18 +55,18 @@
 
         </nav>
 
-        <template id="template-app-menu-li">
+        <template id="menueleiste">
             <li data-page-name="$NAME$">
                 <a>$LABEL$</a>
             </li>
         </template>
 
         <!-- Seite: Listenübersicht -->
-        <main id="main-page-list" class="hidden">
+        <main id="serienListe" class="hidden">
             <ol></ol>
         </main>
 
-        <template id="template-page-list-empty">
+        <template id="template-liste-leer">
             <li>
                 <div class="titel">
                     Keine Einträge vorhanden
@@ -74,10 +74,18 @@
             </li>
         </template>
 
-        <template id="template-page-list-li">
+        <template id="template-serien-liste-li">
             <li>
+
                 <div class="titel">
                     <b>Titel:</b> $TITEL$
+                    <div>
+                    <span class="$STERN1$" >★</span>
+                    <span class="$STERN2$" >★</span>
+                    <span class="$STERN3$" >★</span>
+                    <span class="$STERN4$" >★</span>
+                    <span class="$STERN5$" >★</span>
+                </div>
                 </div>
                 <div class="field jahr">
                   <b>Erscheinungsjahr:</b> $JAHR$
@@ -97,6 +105,8 @@
                 <div class="field sprache">
                     <b>Sprachen:</b> $SPRACHE$
                 </div>
+              </div>
+              </div>
                 <div class="actions">
                     <div class="action edit">
                         <a>🖊️</a>
@@ -109,10 +119,10 @@
         </template>
 
 
-        <main id="main-page-edit" class="hidden">
+        <main id="serienBearbeitenSeite" class="hidden">
         </main>
 
-        <template id="template-page-edit"
+        <template id="template-serien-bearbeiten"
             <div>
                 <div class="form">
                     <input class="titel" placeholder="Titel" value="$TITEL$" />
@@ -123,6 +133,7 @@
                     <input class="folgen" placeholder="Anzahl der Folgen insgesamt" value="$FOLGEN$" />
                     <input class="laenge" placeholder="Episodenlänge in Minuten" value="$LAENGE$" />
                     <input class="sprache" placeholder="Sprachen" value="$SPRACHE$" />
+                    <input class="bewertung" placeholder="Bewertung" value="$BEWERTUNG$" />
 
                 </div>
                 <div class="actions">
