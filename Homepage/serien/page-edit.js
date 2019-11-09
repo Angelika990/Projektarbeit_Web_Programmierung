@@ -25,6 +25,7 @@ class PageEdit {
             folgen: "",
             laenge: "",
             sprache: "",
+            
         };
 
         if (this._editIndex > -1) {
