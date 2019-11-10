@@ -95,10 +95,20 @@ class PageEdit {
         let bewertung = document.querySelector("#serienBearbeitenSeite .bewertung").value.trim();
 
 
-        if (titel === "") {
-            alert("Geben Sie erst einen Titel ein.");
+        if (titel == "") {
+            alert("Geben Sie bitte einen Titel ein.");
             return;
         }
+
+        if (bewertung == "") {
+            alert("Geben Sie bitte eine ganzahlige Bewertung zwischen 0 und 5 ein.");
+            return;
+        }
+        else if(bewertung !=0 && bewertung != 1 && bewertung !=2 && bewertung !=3 && bewertung !=4 && bewertung !=5){
+          alert("Geben Sie bitte eine ganzahlige Bewertung zwischen 0 und 5 ein.");
+          return;
+        }
+
 
 
 

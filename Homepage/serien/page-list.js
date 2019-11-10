@@ -61,7 +61,7 @@ class PageList {
             temp.innerHTML = temp.innerHTML.replace("$SPRACHE$", serie.sprache);
             temp.innerHTML = temp.innerHTML.replace("$BEWERTUNG$", serie.bewertung);
 
-            if(serie.bewertung== 1){
+            if(serie.bewertung == 1){
                 temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
             }
             else if (serie.bewertung==2) {
