@@ -24,7 +24,9 @@ class App {
 
             },
         ];
-
+        this.bildnummer = "1";
+        let serienButton = document.getElementById("serienkopf");
+        serienButton.addEventListener("click", () => this.themawechseln());
 
         this.menueErstellen();
     }
@@ -79,6 +81,46 @@ class App {
         document.querySelectorAll("#serien-menu li").forEach(li => li.classList.remove("active"));
         document.querySelectorAll(`#serien-menu li[data-page-name="${name}"]`).forEach(li => li.classList.add("active"));
     }
+
+    themawechseln(){
+      let serienButton = document.getElementById("serienkopf");
+      let allesumschliessend = document.getElementById("alles");
+      let ueberschrift= document.getElementById("ueberschriftSerie");
+
+      console.log(this.bildnummer);
+      if(this.bildnummer == "1") {
+
+        serienButton.style.backgroundImage="url(serienTop2.png)";
+        allesumschliessend.style.backgroundImage = "url(background2.png)";
+        ueberschrift.style.color = "white";
+        this.bildnummer=2;
+        }
+      else if (this.bildnummer== "2"){
+
+        serienButton.style.backgroundImage="url(serienTop3.png)";
+        allesumschliessend.style.backgroundImage = "url(background3.png)";
+        this.bildnummer=3;
+        }
+      else if (this.bildnummer== "3"){
+
+        serienButton.style.backgroundImage="url(serienTop4.png)";
+        allesumschliessend.style.backgroundImage = "url(background4.png)";
+        this.bildnummer=4;
+        }
+      else if (this.bildnummer== "4"){
+
+        serienButton.style.backgroundImage="url(serienTop5.png)";
+        allesumschliessend.style.backgroundImage = "url(background5.png)";
+        this.bildnummer=5;
+        }
+      else if (this.bildnummer== "5"){
+        
+        serienButton.style.backgroundImage="url(serienTop.png)";
+        allesumschliessend.style.backgroundImage = "url(background.png)";
+        ueberschrift.style.color = "black";
+        this.bildnummer=1;
+        }
+      }
 
 
     /**

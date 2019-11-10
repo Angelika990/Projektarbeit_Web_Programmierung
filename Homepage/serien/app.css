@@ -11,16 +11,17 @@ html, body {
 
 
 html {
-  background-image: url(background.png);
+/*  background-image: url(background.png);*/
   font-size: 14pt;
   }
 
 body{
-
+  background-image: url(background.png);
   max-width: 80%;
   margin: 0 auto;
 
 }
+
 header{
   background-image: url(serienTop.png);
 }
