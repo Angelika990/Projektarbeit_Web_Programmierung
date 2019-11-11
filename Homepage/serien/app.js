@@ -29,12 +29,25 @@ class App {
         serienButton.addEventListener("click", () => this.themawechseln());
 
         this.menueErstellen();
+
+        window.onscroll = function() {
+          let plus = document.getElementById("1");
+          let fest = plus.offsetTop;
+
+          if (window.pageYOffset >= fest) {
+            plus.setAttribute("name", "fest");
+         } else {
+            plus.removeAttribute("name");
+          }
+        };
+
     }
 
 
     menueErstellen() {
         let ul = document.querySelector("#serien-menu > ul");
         let template = document.getElementById("menueleiste").innerHTML;
+        let idZahl = 1;
 
         this._pages.forEach(page => {
 
@@ -49,10 +62,12 @@ class App {
 
             let li = temp.firstElementChild;
             li.addEventListener("click", () => this.seiteAnzeigen(page.name));
+            li.setAttribute("id", idZahl)
 
 
             temp.removeChild(li);
             ul.appendChild(li);
+            idZahl++;
         });
     }
 
@@ -114,7 +129,7 @@ class App {
         this.bildnummer=5;
         }
       else if (this.bildnummer== "5"){
-        
+
         serienButton.style.backgroundImage="url(serienTop.png)";
         allesumschliessend.style.backgroundImage = "url(background.png)";
         ueberschrift.style.color = "black";
@@ -122,6 +137,13 @@ class App {
         }
       }
 
+    /**
+     * @param  {Integer} index Index des gewünschten Datensatzes
+     * @return {Object} Gewünschter Datensatz oder undefined
+     */
+      inhaltAuslesenByIndex(index) {
+      return this.inhalt[index];
+    }
 
     /**
      * @return {Array} Array mit allen Datenobjekten
@@ -130,13 +152,6 @@ class App {
         return this.inhalt;
     }
 
-    /**
-     * @param  {Integer} index Index des gewünschten Datensatzes
-     * @return {Object} Gewünschter Datensatz oder undefined
-     */
-    inhaltAuslesenByIndex(index) {
-        return this.inhalt[index];
-    }
 
     /**
      * @param {Integer} index Index des zu aktualisierenden Datensatzes
@@ -160,5 +175,9 @@ class App {
     inhaltHinzufuegen(serie) {
         this.inhalt.push(serie);
         return this.inhalt.length - 1;
+    }
+
+    headerFest(){
+      console.log="geschafft";
     }
 }

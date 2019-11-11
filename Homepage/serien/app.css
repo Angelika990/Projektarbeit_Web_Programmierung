@@ -1,4 +1,23 @@
 
+@font-face {
+    font-family: 'cherry_swashregular';
+    src: url('cherryswash-regular-webfont.woff2') format('woff2'),
+         url('cherryswash-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'sailregular';
+    src: url('sail-regular-webfont.woff2') format('woff2'),
+         url('sail-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html, body {
     padding: 0;
     margin: 0;
@@ -11,8 +30,8 @@ html, body {
 
 
 html {
-/*  background-image: url(background.png);*/
   font-size: 14pt;
+  font-family: 'cherry_swashregular';
   }
 
 body{
@@ -25,11 +44,14 @@ body{
 header{
   background-image: url(serienTop.png);
 }
+
 h1{
   padding-top: 20%;
-  font-size: 50pt;
-
+  padding-left: 1%;
+  font-size: 60pt;
+  font-family: 'sailregular';
 }
+
 
 /* NAVIGATION */
 nav {
@@ -54,7 +76,6 @@ nav li {
 
 nav li.active {
     background-color: #333333;
-    border-color:red;
     border-bottom-width: 30px;
 }
 
@@ -65,4 +86,11 @@ nav li:hover {
     border-bottom-width: 3px;
 
     cursor: pointer;
+}
+
+li[name ="fest"]{
+  position: fixed;
+  background-color: rgba(25,25,25,0.3);
+  color: rgba(255,255,255,0.7);
+
 }
