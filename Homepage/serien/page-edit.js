@@ -1,5 +1,9 @@
 "use strict";
-
+/**
+ * Die Klasse PageEdit stellt das Eingabeformular dar.
+ * Sie wird von der App Klasse aufgerufen.
+ *
+ */
 
 class PageEdit {
     /**
@@ -13,9 +17,10 @@ class PageEdit {
         this._app = app;
         this._editIndex = editIndex;
 
+        // Darstellung der Bearbeitungsseite auslesen
         this.bearbeitendeSeite = document.getElementById("serienBearbeitenSeite");
 
-
+        // Bearbeiteten Datensetz einlesen
         this._serie = {
 
             titel: "",
@@ -47,22 +52,22 @@ class PageEdit {
         }
     }
 
-
+    // Seite anzeigen
     show() {
         this.neuerEintrag();
         this.bearbeitendeSeite.classList.remove("hidden");
     }
 
-
+    // Seite ausblenden
     hide() {
         this.bearbeitendeSeite.classList.add("hidden");
     }
-
+    // Neu geänderter Eintrag einfügen
     neuerEintrag() {
-
+        //Voherige Inhalte löschen
         this.bearbeitendeSeite.innerHTML = "";
 
-
+        //Platzhalter ersetzen
         let template = document.getElementById("template-serien-bearbeiten").innerHTML;
         this.bearbeitendeSeite.innerHTML = template;
         this.bearbeitendeSeite.innerHTML = this.bearbeitendeSeite.innerHTML.replace("$TITEL$", this._serie.titel);
@@ -81,9 +86,9 @@ class PageEdit {
         saveButton.addEventListener("click", () => this.speichern());
     }
 
-
+    // Speichern des Datensatzes in die Übersicht
     speichern() {
-
+        // Eingegebene Werte überprüfen
         let titel = document.querySelector("#serienBearbeitenSeite .titel").value.trim();
         let jahr = document.querySelector("#serienBearbeitenSeite .jahr").value.trim();
         let genre = document.querySelector("#serienBearbeitenSeite .genre").value.trim();
@@ -94,12 +99,12 @@ class PageEdit {
         let sprache = document.querySelector("#serienBearbeitenSeite .sprache").value.trim();
         let bewertung = document.querySelector("#serienBearbeitenSeite .bewertung").value.trim();
 
-
+        //Sicher gehen, dass ein Titel eingegeben wurde
         if (titel == "") {
             alert("Geben Sie bitte einen Titel ein.");
             return;
         }
-
+        // Sicher gegen, dass eine ganzstellige Bewertung zwischen 0-5 eingegeben wurde
         if (bewertung == "") {
             alert("Geben Sie bitte eine ganzahlige Bewertung zwischen 0 und 5 ein.");
             return;
@@ -111,7 +116,7 @@ class PageEdit {
 
 
 
-
+        // Datensatz speichern
         this._serie.titel = titel;
         this._serie.jahr = jahr;
         this._serie.genre = genre;
@@ -130,7 +135,7 @@ class PageEdit {
             this._app.inhaltHinzufuegen(this._serie);
         }
 
-
+        // Wieder die Übersicht anzeigen
         this._app.seiteAnzeigen("page-list");
     }
 }

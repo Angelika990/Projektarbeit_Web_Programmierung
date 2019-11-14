@@ -1,4 +1,9 @@
+/**
+* Stylesheet der Klasse App: Hauptstylesheet der Anwendung.
+*
+*/
 
+/* Schriftarten einbinden */
 @font-face {
     font-family: 'cherry_swashregular';
     src: url('cherryswash-regular-webfont.woff2') format('woff2'),
@@ -18,6 +23,7 @@
 
 }
 
+/* Allgemeine Einstellungen */
 html, body {
     padding: 0;
     margin: 0;
@@ -88,6 +94,7 @@ nav li:hover {
     cursor: pointer;
 }
 
+/* Festsetzen des Plusbuttons beim Scrollen mit erhöter Transparenz */
 li[name ="fest"]{
   position: fixed;
   background-color: rgba(25,25,25,0.3);

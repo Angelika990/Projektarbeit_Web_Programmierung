@@ -1,4 +1,9 @@
 
+/**
+ * Die Klasse PageList dient der Darstellung der Listenübersicht
+ * Sie wird von der App Klasse aufgerufen.
+ *
+ */
 
 class PageList {
     /**
@@ -10,19 +15,21 @@ class PageList {
         this._mainElement = document.getElementById("serienListe");
     }
 
-
+    // Seite anzeigen
     show() {
         this.erstelleListe();
         this._mainElement.classList.remove("hidden");
     }
 
-
+    // Seite ausblenden
     hide() {
         this._mainElement.classList.add("hidden");
     }
 
+    // Listeninhalte in die HTML-Seite einfügen.
     erstelleListe() {
 
+        // Vorherige Einträge löschen
         let ol = document.querySelector("#serienListe > ol");
         ol.innerHTML = "";
 
@@ -36,18 +43,19 @@ class PageList {
             return;
         }
 
-
+        // Daren einfügen
         let template = document.getElementById("template-serien-liste-li").innerHTML;
         let index = -1;
 
 
 
         serie.forEach(serie => {
-
+            // Hochzählen des Index
             index++;
 
             let n = index.toString();
 
+            // Mit Hilfe des Templates einen neuen Eintrag kreieren
             let temp = document.createElement("div");
             temp.innerHTML = template;
 
@@ -61,6 +69,7 @@ class PageList {
             temp.innerHTML = temp.innerHTML.replace("$SPRACHE$", serie.sprache);
             temp.innerHTML = temp.innerHTML.replace("$BEWERTUNG$", serie.bewertung);
 
+            //Einfärben der Anzahl der Sterne entsprechend der Bewertung
             if(serie.bewertung == 1){
                 temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
             }
@@ -87,7 +96,7 @@ class PageList {
               temp.innerHTML = temp.innerHTML.replace("$STERN5$", "checked");
             }
 
-
+            // Listeners mit über den Index festlegen
             let _addEventListeners = (index) => {
 
                 let editButton = temp.querySelector(".action.edit");
@@ -100,7 +109,7 @@ class PageList {
 
             _addEventListeners(index);
 
-
+            // Anzeigen
             let li = temp.firstElementChild;
 
             if (li) {
@@ -115,8 +124,6 @@ class PageList {
      * @param {Integer} index Index des zu löschenden Datensatzes
      */
     loeschen(index) {
-
-
 
         this._app.inhaltloeschenByIndex(index);
 

@@ -1,3 +1,7 @@
+/**
+ * Stylesheet der Klasse PageList: Serielistenübersicht
+ */
+
 /* LISTENEINTRÄGE */
 #serienListe ol {
     list-style: none;

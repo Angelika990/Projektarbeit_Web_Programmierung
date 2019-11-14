@@ -7,12 +7,15 @@
         <script src="app.js"></script>
         <link rel="stylesheet" href="app.css" />
 
+        <!--Erstellt die Listenansicht -->
         <script src="page-list.js"></script>
         <link rel="stylesheet" href="page-list.css" />
 
+        <!-- Dient der Eingabe für neue Eintrage und zur Bearbeitung -->
         <script src="page-edit.js"></script>
         <link rel="stylesheet" href="page-edit.css" />
 
+        <!-- Starten der Serienseite -->
         <script>
             window.addEventListener("load", () => {
                 let pages = [
@@ -40,110 +43,116 @@
                 ];
 
                 let app = new App(pages);
+                  <!-- Zu Beginn wird die Liste angezeigt -->
                 app.seiteAnzeigen("page-list");
             });
         </script>
-    </head>
+  </head>
 
+    <!-- Die id "alles"  dient der Methode themawechseln() um den Hintergrund zu ändern-->
     <body id="alles">
-
+      <!-- Kopfzeile mit Hintergrund bild und Titel -->
       <header id="serienkopf">
 
         <h1 id="ueberschriftSerie">Serien</h1>
 
       </header>
-        <nav id="serien-menu">
-            <ul></ul>
 
-        </nav>
+      <!-- Navigation -->
+      <nav id="serien-menu">
+        <ul></ul>
 
-        <template id="menueleiste">
-            <li data-page-name="$NAME$">
-                <a>$LABEL$</a>
-            </li>
-        </template>
+      </nav>
 
-        <!-- Seite: Listenübersicht -->
-        <main id="serienListe" class="hidden">
-            <ol></ol>
-        </main>
+      <template id="menueleiste">
+        <li data-page-name="$NAME$">
+          <a>$LABEL$</a>
+        </li>
+      </template>
 
-        <template id="template-liste-leer">
-            <li>
-                <div class="titel">
-                    Keine Einträge vorhanden
-                </div>
-            </li>
-        </template>
+      <!-- Anzeigen der Serienliste -->
+      <main id="serienListe" class="hidden">
+          <ol></ol>
+      </main>
 
-        <template id="template-serien-liste-li">
-            <li>
+      <!-- Hinweis wenn die Liste leer ist -->
+      <template id="template-liste-leer">
+          <li>
+              <div class="titel">
+                  Keine Einträge vorhanden
+              </div>
+          </li>
+      </template>
 
-                <div class="titel">
-                    <b>Titel:</b> $TITEL$
-                    <div>
-                    <span class="$STERN1$" >★</span>
-                    <span class="$STERN2$" >★</span>
-                    <span class="$STERN3$" >★</span>
-                    <span class="$STERN4$" >★</span>
-                    <span class="$STERN5$" >★</span>
-                </div>
-                </div>
-                <div class="field jahr">
-                  <b>Erscheinungsjahr:</b> $JAHR$
-                </div>
-                <div class="field genre">
-                    <b>Genre:</b> $GENRE$
-                </div>
-                <div class="field alter">
-                    <b>FSK:</b> $ALTER$
-                </div>
-                <div class="field episoden">
-                  <b> Episoden:</b> $FOLGEN$ in $STAFFELN$ Staffeln
-                </div>
-                <div class="field laenge">
-                    <b>Episodenlänge:</b> $LAENGE$ min
-                </div>
-                <div class="field sprache">
-                    <b>Sprachen:</b> $SPRACHE$
-                </div>
+      <!-- Anordnung eines Serieneintrags -->
+      <template id="template-serien-liste-li">
+          <li>
+
+              <div class="titel">
+                  <b>Titel:</b> $TITEL$
+                  <div>
+                  <span class="$STERN1$" >★</span>
+                  <span class="$STERN2$" >★</span>
+                  <span class="$STERN3$" >★</span>
+                  <span class="$STERN4$" >★</span>
+                  <span class="$STERN5$" >★</span>
               </div>
               </div>
-                <div class="actions">
-                    <div class="action edit">
-                        <a>🖊️</a>
-                    </div>
-                    <div class="action delete">
-                        <a>🗑️</a>
-                    </div>
+              <div class="field jahr">
+                <b>Erscheinungsjahr:</b> $JAHR$
+              </div>
+              <div class="field genre">
+                  <b>Genre:</b> $GENRE$
+              </div>
+              <div class="field alter">
+                <b>FSK:</b> $ALTER$
+              </div>
+              <div class="field episoden">
+                <b> Episoden:</b> $FOLGEN$ in $STAFFELN$ Staffeln
+              </div>
+              <div class="field laenge">
+                <b>Episodenlänge:</b> $LAENGE$ min
+              </div>
+              <div class="field sprache">
+                <b>Sprachen:</b> $SPRACHE$
+              </div>
+              </div>
+              </div>
+              <div class="actions">
+                <div class="action edit">
+                  <a>🖊️</a>
                 </div>
-            </li>
-        </template>
-
-
-        <main id="serienBearbeitenSeite" class="hidden">
-        </main>
-
-        <template id="template-serien-bearbeiten"
-            <div>
-                <div class="form">
-                    <input class="titel" placeholder="Titel" value="$TITEL$" />
-                    <input type="number" class="jahr" placeholder="Erscheinungsjahr" value="$JAHR$" />
-                    <input class="genre" placeholder="Genre" value="$GENRE$" />
-                    <input type="number" class="alter" placeholder="Altersfreigabe" value="$ALTER$" />
-                    <input type="number" class="staffeln" placeholder="Anzahl der Staffeln" value="$STAFFELN$" />
-                    <input type="number" class="folgen" placeholder="Anzahl der Folgen insgesamt" value="$FOLGEN$" />
-                    <input type="number"class="laenge" placeholder="Episodenlänge in Minuten" value="$LAENGE$" />
-                    <input class="sprache" placeholder="Sprachen" value="$SPRACHE$" />
-                    <input type="number" class="bewertung" placeholder="Bewertung" value="$BEWERTUNG$" />
-
+                <div class="action delete">
+                  <a>🗑️</a>
                 </div>
-                <div class="actions">
-                    <div class="action save">
-                        <a>💾</a>
-                    </div>
+              </div>
+          </li>
+      </template>
+
+      <!-- Darstellung der Bearbeitungsseite -->
+      <main id="serienBearbeitenSeite" class="hidden">
+      </main>
+
+      <template id="template-serien-bearbeiten"
+          <div>
+              <div class="form">
+                  <input class="titel" placeholder="Titel" value="$TITEL$" />
+                  <input type="number" class="jahr" placeholder="Erscheinungsjahr" value="$JAHR$" />
+                  <input class="genre" placeholder="Genre" value="$GENRE$" />
+                  <input type="number" class="alter" placeholder="Altersfreigabe" value="$ALTER$" />
+                  <input type="number" class="staffeln" placeholder="Anzahl der Staffeln" value="$STAFFELN$" />
+                  <input type="number" class="folgen" placeholder="Anzahl der Folgen insgesamt" value="$FOLGEN$" />
+                  <input type="number"class="laenge" placeholder="Episodenlänge in Minuten" value="$LAENGE$" />
+                  <input class="sprache" placeholder="Sprachen" value="$SPRACHE$" />
+                  <input type="number" class="bewertung" placeholder="Bewertung" value="$BEWERTUNG$" />
+
+              </div>
+              <div class="actions">
+                <div class="action save">
+                    <a>💾</a>
                 </div>
-            </div>
-        </template>
-    </body>
+              </div>
+          </div>
+      </template>
+  </body>
 </html>
