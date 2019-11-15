@@ -1,131 +1,116 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <link rel="stylesheet" href="style.css">
-</head>
-<title>MyFavorite</title>
 
-<meta charset="UTF-8">
+<html>
+
+<head>
+    <title>MyFavorite</title>
+    <link href="style1.css" type="text/css" rel="stylesheet">
+</head>
+
+
 <body>
 
-<!-- Side Navigation -->
-<nav class="sidebar bar-block card center" style="display:none" id="idSidebar">
-    <h1 class="xxlarge text-theme">Seitenübersicht</h1>
-    <button class="bar-item button" onclick="_close()">Schließen </button>
-    <a href="#" class="bar-item button">Bücher</a>
-    <a href="#" class="bar-item button">Musik</a>
-    <a href="#" class="bar-item button">Serien</a>
-    <a href="#" class="bar-item button">Filme</a>
-</nav>
 
-<!-- Header -->
-<header class="container theme padding" id="idHeader">
-    <i onclick="_open()" class="large button theme" ></i>
-    <div class="center">
-        <h4>My FAVORITE</h4>
-        <h1 class="xxlarge animate-bottom">DEINE FAVORITEN ZU UNSEREN FAVORITEN</h1>
-    </div>
-</header>
+<section id="startseite">
 
-<!-- Module -->
-<div class="row-padding center margin-top">
-    <div class="module">
-        <div class="card container" style="min-height:460px">
-            <button class="action-button pic-book"><h3>Buecher</h3></button>
-            <i class="margin-bottom text-theme" style="font-size:120px"></i>
+    <nav>
+        <ul>
+            <li><a href="#buecher"> Bücher</li>
+            <li><a href="#musik"> Musik</li>
+            <li><a href="#serien"> Serien</li>
+            <li><a href="#filme"> Filme</li>
+        </ul>
+
+    </nav>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <title>MyFavorite</title>
+
+    <meta charset="UTF-8">
+    <body>
+
+    <!-- Side Navigation -->
+    <nav class="sidebar bar-block card center" style="display:none" id="idSidebar">
+        <h1 class="xxlarge text-theme">Seitenübersicht</h1>
+        <button class="bar-item button" onclick="_close()">Schließen </button>
+        <a href="#" class="bar-item button">Bücher</a>
+        <a href="#" class="bar-item button">Musik</a>
+        <a href="#" class="bar-item button">Serien</a>
+        <a href="#" class="bar-item button">Filme</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="container theme padding" id="idHeader">
+        <i onclick="_open()" class="large button theme" ></i>
+        <div class="center">
+            <h4>My FAVORITE</h4>
+            <h1 class="xxlarge animate-bottom">DEINE FAVORITEN ZU UNSEREN FAVORITEN</h1>
         </div>
-    </div>
+    </header>
 
-
-    <div class="module">
-        <div class="card container" style="min-height:460px">
-            <button class="action-button pic-movie"><h3>Filme</h3></button>
-            <i class="margin-bottom text-theme" style="font-size:120px"></i>
-        </div>
-    </div>
-
-    <div class="module">
-        <div class="card container" style="min-height:460px">
-            <button class="action-button pic-series"><h3>Serien</h3></button>
-            <i class="margin-bottom text-theme" style="font-size:120px"></i>
-        </div>
-    </div>
-
-    <div class="module">
-        <div class="card container" style="min-height:460px">
-            <button class="action-button pic-music"><h3>Musik</h3></button>
-            <i class="margin-bottom text-theme" style="font-size:120px"></i>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <hr>
-    <div class="center">
-        <h2>FARBEN</h2>
-    </div>
-
-    <div class="colorRow">
-        <div class="color container colorWidth red"><button class="action-button-color-red"><p>Rot</p></button></div>
-        <div class="color container colorWidth blue"><button class="action-button-color-blue"><p>Blau</p></button></div>
-        <div class="color container colorWidth blue-grey"><button class="action-button-color-blue-grey"><p>Grau</p></button></div>
-        <div class="color container colorWidth teal"><button class="action-button-color-teal"><p>Türkis</p></button></div>
-        <div class="color container colorWidth yellow"><button class="action-button-color-yellow"><p>Gelb</p></button></div>
-        <div class="color container colorWidth orange"><button class="action-button-color-orange"><p>Orange</p></button></div>
-    </div>
-
-    <hr>
-
-
-    <!--Formular and Lists-->
-    <h2 class="center">Formular und Listen</h2>
-</div>
-
-<div class="row-padding">
-
-    <div class="formular">
-        <form class="container card-4">
-            <h2>Eingaben</h2>
-            <div class="section">
-                <input class="input" type="text" required>
-                <label>Name</label>
+    <!-- Module -->
+    <div class="row-padding center margin-top">
+        <div class="module">
+            <div class="card container" style="min-height:460px">
+                <button class="action-button pic-book"><h3>Buecher</h3></button>
+                <i class="margin-bottom text-theme" style="font-size:120px"></i>
             </div>
-            <div class="section">
-                <input class="input" type="text" required>
-                <label>E-Mail</label>
+        </div>
+
+
+        <div class="module">
+            <div class="card container" style="min-height:460px">
+                <button class="action-button pic-movie"><h3>Filme</h3></button>
+                <i class="margin-bottom text-theme" style="font-size:120px"></i>
             </div>
-            <div class="colorRow">
-                <div class="formular">
-                </div>
+        </div>
+
+        <div class="module">
+            <div class="card container" style="min-height:460px">
+                <button class="action-button pic-series"><h3>Serien</h3></button>
+                <i class="margin-bottom text-theme" style="font-size:120px"></i>
             </div>
-        </form>
-    </div>
-    <div class="formular">
-        <div class="card-4 container">
-            <h2>Liste der TOP HITS</h2>
-            <ul class="ul margin-bottom">
-                <li>ED Sheeran - I don´t care</li>
-                <li>Tribute von Panem</li>
-                <li>Haus des Geldes</li>
-            </ul>
-            <br>
+        </div>
+
+        <div class="module">
+            <div class="card container" style="min-height:460px">
+                <button class="action-button pic-music"><h3>Musik</h3></button>
+                <i class="margin-bottom text-theme" style="font-size:120px"></i>
+            </div>
         </div>
     </div>
-</div>
-<br>
 
-<!-- Footer -->
-<footer class="container theme-dark padding-16">
-    <h3>Unser Team</h3>
-    <p>Erstellt von Angelika, Ann-Marie, Celina, Jason </p>
-    <div style="position:relative;bottom:55px;" class="tooltip right">
-        <span class="w3-text w3-theme-light padding">Gehe nach oben</span> 
-        <a class="text-white" href="#idHeader"><span class="large">
-    </div>
-</footer>
+    <div class="container">
+        <hr>
+        <div class="center">
+            <h2>FARBEN</h2>
+        </div>
+
+        <div class="colorRow">
+            <div class="color container colorWidth red"><button class="action-button-color-red"><p>Rot</p></button></div>
+            <div class="color container colorWidth blue"><button class="action-button-color-blue"><p>Blau</p></button></div>
+            <div class="color container colorWidth blue-grey"><button class="action-button-color-blue-grey"><p>Grau</p></button></div>
+            <div class="color container colorWidth teal"><button class="action-button-color-teal"><p>Türkis</p></button></div>
+            <div class="color container colorWidth yellow"><button class="action-button-color-yellow"><p>Gelb</p></button></div>
+            <div class="color container colorWidth orange"><button class="action-button-color-orange"><p>Orange</p></button></div>
+        </div>
+
+        <hr>
+
+    <!-- Footer -->
+    <footer class="container theme-dark padding-16">
+        <h3>Unser Team</h3>
+        <p>Erstellt von Angelika, Ann-Marie, Celina, Jason </p>
+        <div style="position:relative;bottom:55px;" class="tooltip right">
+            <span class="w3-text w3-theme-light padding">Gehe nach oben</span> 
+            <a class="text-white" href="#idHeader"><span class="large">
+        </div>
+    </footer>
 
 
-<script>
+    <script>
 // Side navigation
 function _open() {
   var x = document.getElementById("idSidebar");
@@ -143,5 +128,30 @@ function _close() {
 
 </script>
 
+
+</section>
+
+<section id="buecher">
+    <h1>Bücher</h1>
+</section>
+
+<section id="musik">
+    <h1>MUSIK</h1>
+</section>
+
+<section id="serien">
+    <h1>SERIEN</h1>
+</section>
+
+<section id="filme">
+    <h1>FILME</h1>
+</section>
+
+
+
+
 </body>
+
+
+
 </html>
