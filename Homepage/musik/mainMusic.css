@@ -1,0 +1,79 @@
+html, body {
+    padding: 0;
+}
+
+html {
+    font-family: "Segoe UI";
+    font-size: 14pt;
+}
+
+.hidden {
+    display: none;
+}
+
+
+body{
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+h1{
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    padding-top: 1%;
+    font-size: 60pt;
+    font-family: "Segoe UI";
+}
+
+h2{
+    font-family: "Segoe UI";
+    font-size: 44pt;
+}
+
+nav {
+    background-color: #c0c0c0;
+    border-bottom-width: 5px;
+    border: 0px solid black;
+    color: white;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0;
+    padding: 1%;
+}
+
+nav li.active {
+    border-bottom-width: 40px;
+    background-color: black;
+}
+
+nav li:hover {
+    cursor: pointer;
+    background-color: black;
+    border: 0px solid white);
+    border-bottom-width: 5px;
+}
+
+li[name ="stay"]{
+    background-color: rgba(25,25,25,0.4);
+    color: rgba(255,255,255,0.8);
+    padding-right:1%;
+    position: fixed;
+
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-style: normal;
+}

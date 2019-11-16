@@ -1,0 +1,32 @@
+#musicEditPage {
+    background-color: #e4e4e4;
+    padding: 1%;
+}
+
+#musicEditPage .form > * {
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 0.8%;
+    margin-bottom: 1.5%;
+}
+
+/* do things buttons */
+#musicEditPage .doThings {
+    width: 27%;
+    margin-left: 70%;
+}
+
+#musicEditPage .doThings > div {
+    padding: 0.5%;
+    background-color: white;
+    transition: background-color 0.7s;
+    flex: 1;
+    text-align: center;
+}
+
+
+#musicEditPage .doThings > div:hover {
+    background-color: #7c7c7c;
+    cursor: pointer;
+}

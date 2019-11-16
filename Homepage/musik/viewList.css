@@ -1,0 +1,70 @@
+#musicList ol {
+    padding: 1%;
+    list-style: disc;
+}
+
+#musicList li {
+    border-color: black;
+    border-width: 5px;
+    border-style: solid;
+    background-color: #fcfcfc;
+
+}
+
+#musicList li:hover {
+    background-color: #e4e4e4;
+}
+
+#musicList .titel {
+    font-size: 30pt;
+    margin-top:0.5%;
+    margin-bottom:0.5%;
+}
+
+#musicList .place {
+    font-size: 12pt;
+    margin-top:0.8%;
+    margin-bottom:0.8%;
+}
+
+#musicList div{
+    margin-left: 2%;
+}
+
+#musicList .doThings {
+    display: flex;
+    align-items : stretch;
+}
+
+#musicList .doThings > div {
+    padding: 3%;
+    background-color: #black;
+    transition: background-color 0.7s;
+    flex: 1;
+    text-align: center;
+}
+
+#musicList .doThings > div:first-child {
+    margin-left: 60%;
+}
+
+#musicList .doThings > div:last-child {
+    margin-right: 5%;
+}
+
+#musicList .doThings > div:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.titel> div{
+    float: right;
+}
+
+.titel> div >span{
+    font-size: 40pt;
+}
+
+.checked {
+    color: black;
+}
