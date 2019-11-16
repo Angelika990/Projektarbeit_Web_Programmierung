@@ -41,7 +41,7 @@ body {
     color: black;
     outline: 0;
 
-/*  color: #505050; */
+
     font-size: 150%;
 
     padding: 0.75em 0.25em 0.75em 0.25em;
@@ -69,12 +69,12 @@ body {
     float: center;
 }
 
-/* Main Layout */
+/* Layout */
 main {
     padding: 1em;
 }
 
-/* Liste der Notizen */
+/* Filmliste*/
 main > ul {
     list-style: none;
     padding: 0;
@@ -133,6 +133,8 @@ p {
 
   }
 }
+
+/* Hintergrund der Eingabeliste */
 div {
   background-image: url("divImage.jpg");
   position: center;
@@ -221,6 +223,7 @@ ul{
   margin: 0;
   padding: 0;
 }
+/*Button, um Einträge zu löschen */
 
 .close {
   position: absolute;
@@ -232,3 +235,5 @@ ul{
 .close:hover {
   background-color: #f44336;
   color: white;
+
+}
