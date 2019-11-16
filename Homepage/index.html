@@ -1,157 +1,195 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-    <title>MyFavorite</title>
-    <link href="style1.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <script src="appmain.js"></script>
+    <meta charset="utf-8" />
+    <title>Favoriten-Liste</title>
+    <!--  -->
 </head>
-
-
 <body>
+<div id=kopf>
+  <h1 id="kopfUeberschrift">Favoriten</h1>
+  <ul>
+    <li href="#" data-target="serien" class="nav-link">Serien</li>
+    <li href="#" data-target="filme" class="nav-link">Filme</li>
+    <li href="#" data-target="buecher" class="nav-link">Bücher</li>
+    <li href="#" data-target="musik" class="nav-link">Musik</li>
+    <li id=aendernButton>Hintergrund ändern</li>
+  </ul>
+</div>
 
+    <div class="page active" id="serien">
+      <head>
+          <meta charset="utf-8" />
+          <title>Favoriten-Liste</title>
 
-<section id="startseite">
+          <script src="./serien/app.js"></script>
+          <link rel="stylesheet" href="./serien/app.css" />
 
-    <nav>
-        <ul>
-            <li><a href="#buecher"> Bücher</li>
-            <li><a href="#musik"> Musik</li>
-            <li><a href="#serien"> Serien</li>
-            <li><a href="#filme"> Filme</li>
-        </ul>
+          <!--Erstellt die Listenansicht -->
+          <script src="./serien/page-list.js"></script>
+          <link rel="stylesheet" href="./serien/page-list.css" />
 
-    </nav>
+          <!-- Dient der Eingabe für neue Eintrage und zur Bearbeitung -->
+          <script src="./serien/page-edit.js"></script>
+          <link rel="stylesheet" href="./serien/page-edit.css" />
 
-    <head>
-        <link rel="stylesheet" href="style.css">
+          <!-- Starten der Serienseite -->
+          <script>
+              window.addEventListener("load", () => {
+                  let pages = [
+                    {
+                        name: "page-new",
+                        klass: PageEdit,
+                        label: "+",
+                        hidden: false,
+                    },
+
+                      {
+                          name: "page-list",
+                          klass: PageList,
+                          label: "Übersicht",
+                          hidden: false,
+                      },
+
+                      {
+                          name: "page-edit",
+                          klass: PageEdit,
+                          label: "Serien bearbeiten",
+                          hidden: true,
+                      },
+
+                  ];
+
+                  let app = new App(pages);
+                    <!-- Zu Beginn wird die Liste angezeigt -->
+                  app.seiteAnzeigen("page-list");
+              });
+          </script>
     </head>
-    <title>MyFavorite</title>
 
-    <meta charset="UTF-8">
-    <body>
+      <!-- Die id "alles"  dient der Methode themawechseln() um den Hintergrund zu ändern-->
+      <body id="alles">
+        <!-- Kopfzeile mit Hintergrund bild und Titel -->
+        <header id="serienkopf">
 
-    <!-- Side Navigation -->
-    <nav class="sidebar bar-block card center" style="display:none" id="idSidebar">
-        <h1 class="xxlarge text-theme">Seitenübersicht</h1>
-        <button class="bar-item button" onclick="_close()">Schließen </button>
-        <a href="#" class="bar-item button">Bücher</a>
-        <a href="#" class="bar-item button">Musik</a>
-        <a href="#" class="bar-item button">Serien</a>
-        <a href="#" class="bar-item button">Filme</a>
-    </nav>
+          <h1 id="ueberschriftSerie">Serien</h1>
 
-    <!-- Header -->
-    <header class="container theme padding" id="idHeader">
-        <i onclick="_open()" class="large button theme" ></i>
-        <div class="center">
-            <h4>My FAVORITE</h4>
-            <h1 class="xxlarge animate-bottom">DEINE FAVORITEN ZU UNSEREN FAVORITEN</h1>
-        </div>
-    </header>
+        </header>
 
-    <!-- Module -->
-    <div class="row-padding center margin-top">
-        <div class="module">
-            <div class="card container" style="min-height:460px">
-                <button class="action-button pic-book"><h3>Buecher</h3></button>
-                <i class="margin-bottom text-theme" style="font-size:120px"></i>
+        <!-- Navigation -->
+        <nav id="serien-menu">
+          <ul></ul>
+
+        </nav>
+
+        <template id="menueleiste">
+          <li data-page-name="$NAME$">
+            <a>$LABEL$</a>
+          </li>
+        </template>
+
+        <!-- Anzeigen der Serienliste -->
+        <main id="serienListe" class="hidden">
+            <ol></ol>
+        </main>
+
+        <!-- Hinweis wenn die Liste leer ist -->
+        <template id="template-liste-leer">
+            <li>
+                <div class="titel">
+                    Keine Einträge vorhanden
+                </div>
+            </li>
+        </template>
+
+        <!-- Anordnung eines Serieneintrags -->
+        <template id="template-serien-liste-li">
+            <li>
+
+                <div class="titel">
+                    <b>Titel:</b> $TITEL$
+                    <div>
+                    <span class="$STERN1$" >★</span>
+                    <span class="$STERN2$" >★</span>
+                    <span class="$STERN3$" >★</span>
+                    <span class="$STERN4$" >★</span>
+                    <span class="$STERN5$" >★</span>
+                </div>
+                </div>
+                <div class="field jahr">
+                  <b>Erscheinungsjahr:</b> $JAHR$
+                </div>
+                <div class="field genre">
+                    <b>Genre:</b> $GENRE$
+                </div>
+                <div class="field alter">
+                  <b>FSK:</b> $ALTER$
+                </div>
+                <div class="field episoden">
+                  <b> Episoden:</b> $FOLGEN$ in $STAFFELN$ Staffeln
+                </div>
+                <div class="field laenge">
+                  <b>Episodenlänge:</b> $LAENGE$ min
+                </div>
+                <div class="field sprache">
+                  <b>Sprachen:</b> $SPRACHE$
+                </div>
+                <div class="actions">
+                  <div class="action edit">
+                    <a>🖊️</a>
+                  </div>
+                  <div class="action delete">
+                    <a>🗑️</a>
+                  </div>
+                </div>
+            </li>
+        </template>
+
+        <!-- Darstellung der Bearbeitungsseite -->
+        <main id="serienBearbeitenSeite" class="hidden">
+        </main>
+
+        <template id="template-serien-bearbeiten"
+            <div>
+                <div class="form">
+                    <input class="titel" placeholder="Titel" value="$TITEL$" />
+                    <input type="number" class="jahr" placeholder="Erscheinungsjahr" value="$JAHR$" />
+                    <input class="genre" placeholder="Genre" value="$GENRE$" />
+                    <input type="number" class="alter" placeholder="Altersfreigabe" value="$ALTER$" />
+                    <input type="number" class="staffeln" placeholder="Anzahl der Staffeln" value="$STAFFELN$" />
+                    <input type="number" class="folgen" placeholder="Anzahl der Folgen insgesamt" value="$FOLGEN$" />
+                    <input type="number"class="laenge" placeholder="Episodenlänge in Minuten" value="$LAENGE$" />
+                    <input class="sprache" placeholder="Sprachen" value="$SPRACHE$" />
+                    <input type="number" class="bewertung" placeholder="Bewertung" value="$BEWERTUNG$" />
+
+                </div>
+                <div class="actions">
+                  <div class="action save">
+                      <a>💾</a>
+                  </div>
+                </div>
             </div>
-        </div>
-
-
-        <div class="module">
-            <div class="card container" style="min-height:460px">
-                <button class="action-button pic-movie"><h3>Filme</h3></button>
-                <i class="margin-bottom text-theme" style="font-size:120px"></i>
-            </div>
-        </div>
-
-        <div class="module">
-            <div class="card container" style="min-height:460px">
-                <button class="action-button pic-series"><h3>Serien</h3></button>
-                <i class="margin-bottom text-theme" style="font-size:120px"></i>
-            </div>
-        </div>
-
-        <div class="module">
-            <div class="card container" style="min-height:460px">
-                <button class="action-button pic-music"><h3>Musik</h3></button>
-                <i class="margin-bottom text-theme" style="font-size:120px"></i>
-            </div>
-        </div>
+        </template>
+    </body>
     </div>
 
-    <div class="container">
-        <hr>
-        <div class="center">
-            <h2>FARBEN</h2>
-        </div>
+    <div class="page" id="filme">
+        <h1>Filme</h1>
 
-        <div class="colorRow">
-            <div class="color container colorWidth red"><button class="action-button-color-red"><p>Rot</p></button></div>
-            <div class="color container colorWidth blue"><button class="action-button-color-blue"><p>Blau</p></button></div>
-            <div class="color container colorWidth blue-grey"><button class="action-button-color-blue-grey"><p>Grau</p></button></div>
-            <div class="color container colorWidth teal"><button class="action-button-color-teal"><p>Türkis</p></button></div>
-            <div class="color container colorWidth yellow"><button class="action-button-color-yellow"><p>Gelb</p></button></div>
-            <div class="color container colorWidth orange"><button class="action-button-color-orange"><p>Orange</p></button></div>
-        </div>
+    </div>
 
-        <hr>
+    <div class="page" id="buecher">
+        <h1>Bücher</h1>
 
-    <!-- Footer -->
-    <footer class="container theme-dark padding-16">
-        <h3>Unser Team</h3>
-        <p>Erstellt von Angelika, Ann-Marie, Celina, Jason </p>
-        <div style="position:relative;bottom:55px;" class="tooltip right">
-            <span class="w3-text w3-theme-light padding">Gehe nach oben</span> 
-            <a class="text-white" href="#idHeader"><span class="large">
-        </div>
-    </footer>
+    </div>
+    <div class="page" id="musik">
+        <h1>Musik</h1>
 
-
-    <script>
-// Side navigation
-function _open() {
-  var x = document.getElementById("idSidebar");
-  x.style.width = "100%";
-  x.style.fontSize = "40px";
-  x.style.paddingTop = "10%";
-  x.style.display = "block";
-}
-function _close() {
-  document.getElementById("idSidebar").style.display = "none";
-}
-
-
-
-
-</script>
-
-
-</section>
-
-<section id="buecher">
-    <h1>Bücher</h1>
-</section>
-
-<section id="musik">
-    <h1>MUSIK</h1>
-</section>
-
-<section id="serien">
-    <h1>SERIEN</h1>
-</section>
-
-<section id="filme">
-    <h1>FILME</h1>
-</section>
-
-
+    </div>
 
 
 </body>
-
-
-
 </html>
