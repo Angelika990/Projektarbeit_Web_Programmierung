@@ -8,18 +8,15 @@
         <script src="Seite1.js"></script>
 
 
-
-
     </head>
     <body>
       <h1>Filme</h1>
         <div id="toolbar">
 
-          <button onclick="plusButton()">+</button>
+          <button onclick="plusButton()">Übersicht der Lieblingsfilme</button>
 
-            <a style="float:right" href="index.html"><button>
-              <b>Übersicht der Lieblingsfilme</b>
-            </button>
+            <button onClick="showDiv()" style="float:right">+</button>
+
           </a>
 
 
@@ -33,46 +30,37 @@
           <br>
 
 
-
-
 <div id="sometimesThere">
   <form style="float:center" id="plusKasten">
   <h2>Film hinzufügen</h2>
 
   <form>
-    Titel: <input type="text" name="titel"><br> <br>
-    Erscheinungsjahr: <input type="text" name="erscheinungsjahr"><br> <br>
-    Genre: <input type="text" name="genre"><br> <br>
-    FSK: <input type="text" name="fsk"><br> <br>
-    Filmlänge: <input type="text" name="filmlänge"><br> <br>
-    Eigene Bewertung: <input type="text" name="eigeneBewertung"><br> <br>
-    Link zum Trailer: <input type="text" name="linkZumTrailer"><br> <br>
-    Sprache: <input type="text" name="sprache"><br> <br>
-    <br> <br>
 
 
-    <input type ="button" id="abschickenButton" onClick="boxErstellen()"value="Jetzt Film hinzufügen">
+    Titel: <input type="text" id="titel"><br> <br>
+    Erscheinungsjahr: <input type="text" id="erscheinungsjahr"><br> <br>
+    Genre: <input type="text" id="genre"><br> <br>
+    FSK: <input type="text" id="fsk"><br> <br>
+    Filmlänge: <input type="text" id="filmlänge"><br> <br>
+    Eigene Bewertung: <input type="text" id="eigeneBewertung"><br> <br>
+    Link zum Trailer: <input type="text" name="linkZumTrailer" id="linkZumTrailer"><br> <br>
+    Sprache: <input type="text" id="sprache"><br> <br>
 
+
+
+    <span onClick="neuerEintrag()" class="MyEntry">Jetzt Film hinzufügen</span>
     </form>
-
+<br>
+<br>
+<br>
+<br>
 </form>
 </div>
 
 
+<ul id="filmeListe">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+</ul>
 
         <main>
             <ul></ul>
