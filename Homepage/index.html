@@ -6,17 +6,18 @@
     <script src="appmain.js"></script>
     <meta charset="utf-8" />
     <title>Favoriten-Liste</title>
+
     <!--  -->
 </head>
 <body>
 <div id=kopf>
   <h1 id="kopfUeberschrift">Favoriten</h1>
   <ul>
-    <li href="#" data-target="serien" class="nav-link">Serien</li>
-    <li href="#" data-target="filme" class="nav-link">Filme</li>
-    <a id="buecherlink"href="./books/index.html" target="_blank"><li>Bücher</li></a>
-    <li href="#" data-target="musik" class="nav-link">Musik</li>
-    <li id=aendernButton>Hintergrund ändern</li>
+    <li href="#" onclick="changePage('serien')" class="nav-link">Serien</li>
+    <li href="#" onclick="changePage('filme')" class="nav-link">Filme</li>
+    <li href="#" onclick="changePage('buecher')" class="nav-link">Bücher</li>
+    <li href="#" onclick="changePage('musik')" class="nav-link">Musik</li>
+    <li onclick="changeBackground()" id=aendernButton>Hintergrund ändern</li>
   </ul>
 </div>
 
@@ -245,7 +246,6 @@
     </div>
 <!--______________________________________________________ENDE FILMSEITE_____________________________________________________-->
     <div class="page" id="buecher">
-        <h1>Bücher</h1>
 
     </div>
 
