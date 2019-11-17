@@ -1,6 +1,6 @@
 /* Allgemeines*/
 
-div[id="filme"] body {
+#allesFilme {
 
     background-image: url("backgroundimage.jpeg");
       background-color: #cccccc;
@@ -10,7 +10,7 @@ div[id="filme"] body {
 }
 
 /* Toolbar */
-div[id="filme"] #toolbar {
+#toolbar {
     background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%);
     border: 0px solid darkgrey;
     border-bottom-width: 1px;
@@ -22,8 +22,8 @@ div[id="filme"] #toolbar {
     padding-right: 1rem;
 }
 
-div[id="filme"] #toolbar button,
-div[id="filme"] #toolbar form action {
+#toolbar button,
+#toolbar form action {
 
     color: black;
     outline: 0;
@@ -34,40 +34,40 @@ div[id="filme"] #toolbar form action {
     padding: 0.75em 0.25em 0.75em 0.25em;
 }
 
-div[id="filme"] #toolbar button:hover {
+#toolbar button:hover {
     background: rgba(255, 255, 255, 0.25);
     cursor: pointer;
 }
 
-div[id="filme"] #toolbar button:active {
+#toolbar button:active {
     padding: 0.8em 0.15em 0.7em 0.35em;
 }
 
-div[id="filme"] #toolbar button:hover,
-div[id="filme"] #toolbar button:active,
-div[id="filme"] #toolbar button:focus,
-div[id="filme"] #toolbar button::-moz-focus-inner {
+#toolbar button:hover,
+#toolbar button:active,
+#toolbar button:focus,
+#toolbar button::-moz-focus-inner {
 
     outline: 0;
     border: 0;
 }
 
-div[id="filme"] #toolbar .center {
+#toolbar .center {
     float: center;
 }
 
 /* Layout */
-div[id="filme"] main {
+ #mainFilme {
     padding: 1em;
 }
 
 /* Filmliste*/
-div[id="filme"] main > ul {
+#mainFilme > ul {
     list-style: none;
     padding: 0;
 }
 
-div[id="filme"] main > ul > li {
+#mainFilme > ul > li {
     display: inline-block;
     vertical-align: top;
     margin-right: 1em;
@@ -86,11 +86,11 @@ div[id="filme"] main > ul > li {
     padding-bottom: 2.5em;
 }
 
-div[id="filme"] main > ul > li > p {
+#mainFilme > ul > li > p {
     margin: 0;
 }
 
-div[id="filme"] main > ul > li > .delete {
+#mainFilme > ul > li > .delete {
     position: absolute;
     right: 1em;
     bottom: 1em;
@@ -101,7 +101,7 @@ div[id="filme"] main > ul > li > .delete {
     cursor: pointer;
 }
 
-div[id="filme"] main > ul > li > .delete:hover {
+#mainFilme > ul > li > .delete:hover {
     color: rgb(43, 84, 255) !important;
 }
 div[id="filme"] h1 {
@@ -109,6 +109,7 @@ div[id="filme"] h1 {
   font-family: cursive;
   font-size: 50px;
   color: black;
+
 }
 
 
@@ -129,7 +130,7 @@ div[id="filme"] div {
 
 
 }
-div[id="filme"] form{
+#formFilme{
   color: white;
   font-family: Arial;
   font-size: 22;

@@ -21,25 +21,18 @@ class App {
         this.inhalt = [
             {
                 titel: "The Originals",
-                jahr: "2013-2018",
+                jahr: "2013",
                 genre: "Fantasy, Mystery, Drama",
                 alter: "16",
                 staffeln: "5",
                 folgen: "92",
-                laenge: "ca. 40",
+                laenge: "40",
                 sprache: "Deutsch, Englisch",
                 bewertung:"5",
 
             },
         ];
 
-        // Setzen der Bildnummer, auslesen des Headers,
-        //  und Zuweisung eines Eventlisteners,
-        // der die interne Methode themawechseln aufruft.
-
-        this.bildnummer = "1";
-        let serienButton = document.getElementById("serienkopf");
-        serienButton.addEventListener("click", () => this.themawechseln());
 
         // Aufrufen der Methode zur Erstellung des Menüs
         this.menueErstellen();
@@ -47,14 +40,13 @@ class App {
         // Funktion um den Plusbutton beim Scrollen festzusetzen.
         // Damit bei vielen Einträgen nicht ewig
         // nach oben gescrollt werden muss, bei gewünschten Neueintrag
+        let plus = document.getElementById("1");
         window.onscroll = function() {
-          let plus = document.getElementById("1");
           let fest = plus.offsetTop;
 
           if (window.pageYOffset >= fest) {
             plus.setAttribute("name", "fest");
          } else {
-            plus.removeAttribute("name");
           }
         };
 
@@ -115,49 +107,6 @@ class App {
         document.querySelectorAll("#serien-menu li").forEach(li => li.classList.remove("active"));
         document.querySelectorAll(`#serien-menu li[data-page-name="${name}"]`).forEach(li => li.classList.add("active"));
     }
-    // Methode zum wechseln der Hintergrundbilder
-    // Es stehen 5 Wahlmöglichkeiten offen.
-    themawechseln(){
-      let serienButton = document.getElementById("serienkopf");
-      let allesumschliessend = document.getElementById("alles");
-      let ueberschrift= document.getElementById("ueberschriftSerie");
-
-      // Überprüfung welches Thema aktuell ausgewählt ist
-      // Ändern des Hintergrund zum nächsten Thema
-      console.log(this.bildnummer);
-      if(this.bildnummer == "1") {
-
-        serienButton.style.backgroundImage="url(serienTop2.png)";
-        allesumschliessend.style.backgroundImage = "url(background2.png)";
-        ueberschrift.style.color = "white";
-        this.bildnummer=2;
-        }
-      else if (this.bildnummer== "2"){
-
-        serienButton.style.backgroundImage="url(serienTop3.png)";
-        allesumschliessend.style.backgroundImage = "url(background3.png)";
-        this.bildnummer=3;
-        }
-      else if (this.bildnummer== "3"){
-
-        serienButton.style.backgroundImage="url(serienTop4.png)";
-        allesumschliessend.style.backgroundImage = "url(background4.png)";
-        this.bildnummer=4;
-        }
-      else if (this.bildnummer== "4"){
-
-        serienButton.style.backgroundImage="url(serienTop5.png)";
-        allesumschliessend.style.backgroundImage = "url(background5.png)";
-        this.bildnummer=5;
-        }
-      else if (this.bildnummer== "5"){
-
-        serienButton.style.backgroundImage="url(serienTop.png)";
-        allesumschliessend.style.backgroundImage = "url(background.png)";
-        ueberschrift.style.color = "black";
-        this.bildnummer=1;
-        }
-      }
 
       // Methoden zum Bearbeiten der Datensätze
 

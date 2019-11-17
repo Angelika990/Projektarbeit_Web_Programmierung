@@ -135,7 +135,7 @@ function neuerEintrag() {
    var txt = document.createTextNode("\u00D7");
    span.className = "close";
    span.appendChild(txt);
-   dieListe[i].appendChild(span);
+  // dieListe[i].appendChild(span);
   }
 
   // Funktion des Lösch-Button

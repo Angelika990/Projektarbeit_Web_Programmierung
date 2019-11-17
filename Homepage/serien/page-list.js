@@ -71,29 +71,29 @@ class PageList {
 
             //Einfärben der Anzahl der Sterne entsprechend der Bewertung
             if(serie.bewertung == 1){
-                temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$STERN1$", "gesetzt");
             }
             else if (serie.bewertung==2) {
-                temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
-                  temp.innerHTML = temp.innerHTML.replace("$STERN2$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$STERN1$", "gesetzt");
+                  temp.innerHTML = temp.innerHTML.replace("$STERN2$", "gesetzt");
             }
             else if (serie.bewertung==3) {
-              temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
-                temp.innerHTML = temp.innerHTML.replace("$STERN2$", "checked");
-                temp.innerHTML = temp.innerHTML.replace("$STERN3$", "checked");
+              temp.innerHTML = temp.innerHTML.replace("$STERN1$", "gesetzt");
+                temp.innerHTML = temp.innerHTML.replace("$STERN2$", "gesetzt");
+                temp.innerHTML = temp.innerHTML.replace("$STERN3$", "gesetzt");
             }
             else if (serie.bewertung==4) {
-                temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
-                temp.innerHTML = temp.innerHTML.replace("$STERN2$", "checked");
-                temp.innerHTML = temp.innerHTML.replace("$STERN3$", "checked");
-                temp.innerHTML = temp.innerHTML.replace("$STERN4$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$STERN1$", "gesetzt");
+                temp.innerHTML = temp.innerHTML.replace("$STERN2$", "gesetzt");
+                temp.innerHTML = temp.innerHTML.replace("$STERN3$", "gesetzt");
+                temp.innerHTML = temp.innerHTML.replace("$STERN4$", "gesetzt");
             }
             else if (serie.bewertung==5) {
-              temp.innerHTML = temp.innerHTML.replace("$STERN1$", "checked");
-              temp.innerHTML = temp.innerHTML.replace("$STERN2$", "checked");
-              temp.innerHTML = temp.innerHTML.replace("$STERN3$", "checked");
-              temp.innerHTML = temp.innerHTML.replace("$STERN4$", "checked");
-              temp.innerHTML = temp.innerHTML.replace("$STERN5$", "checked");
+              temp.innerHTML = temp.innerHTML.replace("$STERN1$", "gesetzt");
+              temp.innerHTML = temp.innerHTML.replace("$STERN2$", "gesetzt");
+              temp.innerHTML = temp.innerHTML.replace("$STERN3$", "gesetzt");
+              temp.innerHTML = temp.innerHTML.replace("$STERN4$", "gesetzt");
+              temp.innerHTML = temp.innerHTML.replace("$STERN5$", "gesetzt");
             }
 
             // Listeners mit über den Index festlegen

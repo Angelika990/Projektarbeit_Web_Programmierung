@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id ="alles">
 <head>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
   <ul>
     <li href="#" data-target="serien" class="nav-link">Serien</li>
     <li href="#" data-target="filme" class="nav-link">Filme</li>
-    <li href="#" data-target="buecher" class="nav-link">Bücher</li>
+    <a id="buecherlink"href="./books/index.html" target="_blank"><li>Bücher</li></a>
     <li href="#" data-target="musik" class="nav-link">Musik</li>
     <li id=aendernButton>Hintergrund ändern</li>
   </ul>
@@ -70,8 +70,8 @@
           </script>
     </head>
 
-      <!-- Die id "alles"  dient der Methode themawechseln() um den Hintergrund zu ändern-->
-      <body id="alles">
+      <!-- Die id "allesSerie"  dient der Methode themawechseln() um den Hintergrund zu ändern-->
+      <div id="allesSerie">
         <!-- Kopfzeile mit Hintergrund bild und Titel -->
         <header id="serienkopf">
 
@@ -173,20 +173,240 @@
                 </div>
             </div>
         </template>
-    </body>
     </div>
-
+    </div>
+<!--______________________________________________________ENDE SERIENSEITE_____________________________________________________-->
     <div class="page" id="filme">
-        <h1>Filme</h1>
+      <head>
+
+          <link rel="stylesheet" href="./filme/Seite1.css" />
+          <script src="./filme/Seite1.js"></script>
+
+
+      </head>
+      <div id ="allesFilme">
+        <h1 id"ueberschriftFilme">Filme</h1>
+          <div id="toolbar">
+  <!--Buttons in der Menüleiste -->
+            <button onclick="plusButton()">Übersicht der Lieblingsfilme</button>
+
+              <button onClick="showDiv()" style="float:right">+</button>
+
+            </a>
+
+
+
+          </div>
+
+          <br>
+          <br>
+
+            <br>
+            <br>
+
+  <!--Aufklapp-Eingabeliste-->
+  <div id="sometimesThere">
+    <form style="float:center" id="plusKasten">
+    <h2>Film hinzufügen</h2>
+
+    <form id="formFilme">
+
+  <!--Eingabefelder-->
+      Titel: <input type="text" id="titel"><br> <br>
+      Erscheinungsjahr: <input type="text" id="erscheinungsjahr"><br> <br>
+      Genre: <input type="text" id="genre"><br> <br>
+      FSK: <input type="text" id="fsk"><br> <br>
+      Filmlänge: <input type="text" id="filmlänge"><br> <br>
+      Eigene Bewertung: <input type="text" id="eigeneBewertung"><br> <br>
+      Link zum Trailer: <input type="text" name="linkZumTrailer" id="linkZumTrailer"><br> <br>
+      Sprache: <input type="text" id="sprache"><br> <br>
+
+
+  <!--Button, um Film hinzuzufügen-->
+      <span onClick="neuerEintrag()" class="MyEntry">Jetzt Film hinzufügen</span>
+      </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  </form>
+</div>
+  </div>
+
+  <!--Feste Einträge-->
+  <ul id="filmeListe">
+
+  </ul>
+
+          <main id"mainFilme">
+              <ul></ul>
+          </main>
 
     </div>
-
+<!--______________________________________________________ENDE FILMSEITE_____________________________________________________-->
     <div class="page" id="buecher">
         <h1>Bücher</h1>
 
     </div>
+
+
+
     <div class="page" id="musik">
-        <h1>Musik</h1>
+      <head>
+
+          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+          <!--main-->
+          <script src="./musik/mainMusic.js"></script>
+          <link rel="stylesheet" href="./musik/mainMusic.css" />
+
+          <!--create ListenView -->
+          <script src="./musik/viewList.js"></script>
+          <link rel="stylesheet" href="./musik/viewList.css" />
+
+          <!-- input & edit ListenView -->
+          <script src="./musik/viewEdit.js"></script>
+          <link rel="stylesheet" href="./musik/viewEdit.css" />
+
+          <!-- start application-->
+          <script>
+                  window.addEventListener("load", () => {
+                      let pages = [
+                        {
+                            name: "page-new",
+                            klass: ViewEdit,
+                            hidden: false,
+                            label: "Song hinzufügen",
+                        },
+
+                          {
+                              name: "viewList",
+                              klass: ViewList,
+                              hidden: false,
+                              label: "Songverzeichnis",
+                          },
+
+                          {
+                              name: "viewEdit",
+                              klass: ViewEdit,
+                              hidden: true,
+                              label: "Musik bearbeiten",
+                          },
+
+                      ];
+
+                      let appmusik = new AppMusik(pages);
+                      appmusik.showView("viewList");
+                  });
+              </script>
+      </head>
+      <div id"musikAlles">
+      <header id="musicHeader">
+
+          <h2 id="musikUeberschrift" >Musik</h2>
+
+      </header>
+
+      <!-- navigation -->
+      <nav id="musicMenu">
+          <ul></ul>
+
+      </nav>
+
+      <template id="menuList">
+          <li data-page-name="$NAME$">
+              <a>$LABEL$</a>
+          </li>
+      </template>
+
+      <!-- show -->
+      <main id="musicList" class="hidden">
+          <ol></ol>
+      </main>
+
+      <!-- empty ListView -->
+      <template id="emptyListViewTemplate">
+          <li>
+              <div class="titel">
+                  Es sind leider keine Songs gepflegt.. :(
+              </div>
+          </li>
+      </template>
+
+      <!-- order -->
+      <template id="musicListViewOrder">
+          <li>
+
+              <div class="titel">
+                  <b>Titel:</b> $TITEL$
+                  <div>
+                      <span class="$HERZ1$" >❤</span>
+                      <span class="$HERZ2$" >❤</span>
+                      <span class="$HERZ3$" >❤</span>
+                      <span class="$HERZ4$" >❤</span>
+                      <span class="$HERZ5$" >❤</span>
+                  </div>
+              </div>
+              <div class="place kunstler">
+                  <b>Künstler:</b> $KUNSTLER$
+              </div>
+              <div class="place jahr">
+                  <b>Erscheinungsjahr:</b> $JAHR$
+              </div>
+              <div class="place genre">
+                  <b>Genre:</b> $GENRE$
+              </div>
+              <div class="place album">
+                  <b>Album:</b> $ALBUM$
+              </div>
+              <div class="place sprache">
+                  <b>Sprache:</b> $SPRACHE$
+              </div>
+              <div class="place laenge">
+                  <b>Länge:</b> $LAENGE$ Min.
+              </div>
+              <div class="place link">
+                  <b>Link:</b> $LINK$
+              </div>
+              </div>
+              </div>
+              <div class="doThings">
+                  <div class="doThing edit">
+                      <a>🔨</a>
+                  </div>
+                  <div class="doThing delete">
+                      <a>❌</a>
+                  </div>
+              </div>
+          </li>
+      </template>
+
+      <!-- edit -->
+      <main id="musicEditPage" class="hidden">
+      </main>
+
+      <template id="musicTemplateEdit">
+      <div>
+          <div class="form">
+              <input class="titel" placeholder="Titel" value="$TITEL$" />
+              <input class="kunstler" placeholder="Künstler" value="$KUNSTLER$" />
+              <input class="jahr" type="number" placeholder="Erscheinungsjahr" value="$JAHR$" />
+              <input class="genre" placeholder="Genre" value="$GENRE$" />
+              <input class="album" placeholder="Album" value="$ALBUM$" />
+              <input class="sprache" placeholder="Sprache" value="$SPRACHE$" />
+              <input class="laenge" type="number" placeholder="Länge des Songs" value="$LAENGE$" />
+              <input class="link" placeholder="Link zu YouTube" value="$LINK$" />
+              <input class="bewertung" type="number" placeholder="Bewertung" value="$BEWERTUNG$" />
+
+          </div>
+          <div class="doThings">
+              <div class="doThing save">
+                  <a>SAFE</a>
+              </div>
+          </div>
+      </div>
+      </template>
+    </div>
 
     </div>
 

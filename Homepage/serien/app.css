@@ -24,20 +24,18 @@
 }
 
 /* Allgemeine Einstellungen */
-
-
-div[id="serien"] .hidden {
+.hidden {
     display: none;
 }
 
 
-#alles {
+#allesSerie {
   font-size: 14pt;
   font-family: 'cherry_swashregular';
   }
 
 
-div[id="serien"] header{
+#serienkopf{
   background-image: url(serienTop.png);
 }
 
@@ -50,7 +48,7 @@ div[id="serien"] header{
 
 
 /* NAVIGATION */
-div[id="serien"] nav {
+#serien-menu {
     background-color: #404040;
     color: white;
 
@@ -58,24 +56,24 @@ div[id="serien"] nav {
     border-bottom-width: 3px;
 }
 
-div[id="serien"] nav ul {
+#serien-menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-div[id="serien"] nav li {
+#serien-menu li {
     padding: 1em;
     margin: 0;
 }
 
-div[id="serien"] nav li.active {
+#serien-menu li.active {
     background-color: #333333;
     border-bottom-width: 30px;
 }
 
-div[id="serien"] nav li:hover {
+#serien-menu li:hover {
     background-color: #505050;
 
     border: 0px solid rgb(240, 240, 240);
@@ -85,7 +83,7 @@ div[id="serien"] nav li:hover {
 }
 
 /* Festsetzen des Plusbuttons beim Scrollen mit erhöter Transparenz */
-div[id="serien"] li[name ="fest"]{
+li[name ="fest"]{
   position: fixed;
   background-color: rgba(25,25,25,0.3);
   color: rgba(255,255,255,0.7);
