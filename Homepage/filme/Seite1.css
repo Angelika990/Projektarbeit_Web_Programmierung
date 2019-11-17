@@ -4,7 +4,7 @@
 
     background-image: url("backgroundimage.jpeg");
       background-color: #cccccc;
-      height: 500px;
+      // height: 500px;
     	background-position: top;
       background-size: cover;
 }
