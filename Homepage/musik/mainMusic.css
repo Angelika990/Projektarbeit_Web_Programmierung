@@ -15,6 +15,7 @@
 #musikUeberschrift{
     font-family: "Segoe UI";
     font-size: 44pt;
+    color: white;
 }
 
 #musicMenu {
@@ -48,13 +49,6 @@
     border-bottom-width: 5px;
 }
 
- li[name ="stay"]{
-    background-color: rgba(25,25,25,0.4);
-    color: rgba(255,255,255,0.8);
-    padding-right:1%;
-    position: fixed;
-
-}
 
 @font-face {
     font-family: "Segoe UI";

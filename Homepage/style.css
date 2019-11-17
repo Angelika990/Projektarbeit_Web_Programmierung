@@ -63,3 +63,11 @@ div[id="kopf"] li:hover {
   text-decoration: none;
   color: white;
 }
+
+/* Festsetzen des Plusbuttons beim Scrollen mit erhöter Transparenz */
+li[titel ="fest"]{
+  position: fixed;
+  background-color: rgba(25,25,25,0.3);
+  color: rgba(255,255,255,0.7);
+
+}

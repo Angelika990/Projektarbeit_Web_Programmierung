@@ -37,18 +37,6 @@ class App {
         // Aufrufen der Methode zur Erstellung des Menüs
         this.menueErstellen();
 
-        // Funktion um den Plusbutton beim Scrollen festzusetzen.
-        // Damit bei vielen Einträgen nicht ewig
-        // nach oben gescrollt werden muss, bei gewünschten Neueintrag
-        let plus = document.getElementById("1");
-        window.onscroll = function() {
-          let fest = plus.offsetTop;
-
-          if (window.pageYOffset >= fest) {
-            plus.setAttribute("name", "fest");
-         } else {
-          }
-        };
 
     }
 

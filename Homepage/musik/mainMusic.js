@@ -24,25 +24,14 @@ class AppMusik {
         // create menu
         this.createMenu();
 
-        // button go with scrolling
-        window.onscroll = function() {
-          let plus = document.getElementById("1");
-          let stay = plus.offsetTop;
-
-          if (window.pageYOffset >= stay) {
-            plus.setAttribute("name", "stay");
-         } else {
-            plus.removeAttribute("name");
-          }
-        };
-
+    
     }
 
     // create menu und switch between
     createMenu() {
         let ul = document.querySelector("#musicMenu > ul");
         let template = document.getElementById("menuList").innerHTML;
-        let idZahl = 1;
+        let idZahl = 4;
 
         this._pages.forEach(page => {
             if (page.hidden) return;
