@@ -89,6 +89,14 @@ class ViewEdit {
             swal("Gebe bitte den Songtitel an.");
             return;
         }
+        if (bewertung == "") {
+            swal("Wie gefällt dir der Song? Gib eine Bewertung ab! :)");
+            return;
+        }
+        else if(bewertung !=0 && bewertung != 1 && bewertung !=2 && bewertung !=3 && bewertung !=4 && bewertung !=5){
+          swal("Nur eine Bewertung zwischen 0 - 5 ist möglich :(");
+          return;
+        }
 
         // safe data
         this._music.titel = titel;
