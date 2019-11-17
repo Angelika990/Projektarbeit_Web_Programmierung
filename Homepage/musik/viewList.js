@@ -57,6 +57,33 @@ class ViewList {
             temp.innerHTML = temp.innerHTML.replace("$LINK$", music.link);
             temp.innerHTML = temp.innerHTML.replace("$BEWERTUNG$", music.bewertung);
 
+            // rating
+            if(music.bewertung == 1){
+                temp.innerHTML = temp.innerHTML.replace("$HERZ1$", "checked");
+            }
+            else if (music.bewertung==2) {
+                temp.innerHTML = temp.innerHTML.replace("$HERZ1$", "checked");
+                  temp.innerHTML = temp.innerHTML.replace("$HERZ2$", "checked");
+            }
+            else if (music.bewertung==3) {
+              temp.innerHTML = temp.innerHTML.replace("$HERZ1$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$HERZ2$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$HERZ3$", "checked");
+            }
+            else if (music.bewertung==4) {
+                temp.innerHTML = temp.innerHTML.replace("$HERZ1$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$HERZ2$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$HERZ3$", "checked");
+                temp.innerHTML = temp.innerHTML.replace("$HERZ4$", "checked");
+            }
+            else if (music.bewertung==5) {
+              temp.innerHTML = temp.innerHTML.replace("$HERZ1$", "checked");
+              temp.innerHTML = temp.innerHTML.replace("$HERZ2$", "checked");
+              temp.innerHTML = temp.innerHTML.replace("$HERZ3$", "checked");
+              temp.innerHTML = temp.innerHTML.replace("$HERZ4$", "checked");
+              temp.innerHTML = temp.innerHTML.replace("$HERZ5$", "checked");
+            }
+
 
             // index listener
             let _addEventListeners = (index) => {
